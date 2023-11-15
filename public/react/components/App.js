@@ -30,13 +30,17 @@ export const App = () => {
 
   return (
     <main>
-      <h1>WikiVerse</h1>
-      <h2>Read, Write, Love 📚</h2>
+      <h1 className="logo-text stylized-words">WikiVerse</h1>
+      <h3 className="stylized-words">
+        <i>
+          Read, Write, <span className="font-thin">what you </span> Love 📚
+        </i>
+      </h3>
 
       {/* {conditional statement to render either a list of pages or a single page} */}
       {singlePage ? (
         // single page
-        <Page page={singlePage} />
+        <Page page={singlePage} setSinglePage={setSinglePage} />
       ) : (
         // list of all pages
         <PagesList

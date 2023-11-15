@@ -1,10 +1,115 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sometype+Mono&family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap");
+
 * {
   margin: 0;
   box-sizing: border-box;
-  background-color: rgb(223, 223, 223);
+  color: white;
+  font-family: "Montserrat", sans-serif;
 }
 
 main {
-  padding: 1rem;
+  /* padding: 1rem; */
+  background-color: #1d1d1d;
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* background-color: blue; */
+}
+
+.list-content-holder {
+  /* background-color: blue; */
+  margin-bottom: 5%;
+  margin-top: 5%;
+  padding: 2%;
+  height: 90%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.logo-text {
+  font-size: 5rem;
+  margin: 10px;
+}
+
+.stylized-words {
+  font-family: "Montserrat Alternates", sans-serif;
+}
+
+.font-thin {
+  font-weight: 100;
+}
+
+/* style for each background element of page list */
+.white-background-box {
+  color: #1d1d1d;
+  background-color: white;
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10%;
+  padding: 15px;
+  margin: 10px;
+}
+.background-box-list {
+  align-items: flex-start;
+  width: 40%;
+  height: 30%;
+  justify-content: space-between;
+}
+
+.background-box-page {
+  width: 80%;
+  height: 60%;
+  align-items: center;
+  justify-content: space-between;
+}
+.dark-text {
+  color: #1d1d1d;
+}
+.faded-dark-text {
+  color: #7e7e7e;
+}
+.font-bold {
+  font-weight: 600;
+}
+.tag-text:hover {
+  color: #1d1d1d;
+}
+button {
+  /* border: #424242; */
+  border-radius: 6px;
+  padding: 2%;
+  background-color: #4d4d4d;
+  border: 2px solid #cdcdcd;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+}
+
+button:hover {
+  background-color: #1d1d1d;
+  border: 2px solid #7e7e7e;
+}
+
+.page-header-container {
+  /* background-color: purple; */
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.page-content-container {
+  /* background-color: aqua; */
+  flex-grow: 5;
+}
+.button-container {
+  display: flex;
+  /* height: 100%; */
+  width: 100%;
+  /* background-color: aqua; */
+  justify-content: space-between;
 }

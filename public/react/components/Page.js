@@ -16,6 +16,8 @@ export const Page = (props) => {
       console.log("Oh no an error! ", err);
     }
   }
+
+  // Function to get date of time (could move this into App.js to use across all components)
   const getDateOrTime = (str, valueToGet) => {
     str = str.replace("T", " ");
     str = str.replace("Z", " ");
@@ -36,6 +38,10 @@ export const Page = (props) => {
     }
   };
 
+  const backToList = () => {
+    props.setSinglePage("");
+  };
+
   useEffect(() => {
     fetchPageDetails();
   }, []);
@@ -43,26 +49,38 @@ export const Page = (props) => {
   return (
     <>
       {pageDetails ? (
-        <div>
+        <div className="white-background-box background-box-page">
           {console.log(pageDetails)}
-          <h1>{pageDetails.title}</h1>
-          <h3>
-            <p>{pageDetails.author.name}</p>
-          </h3>
-          <p>
-            <b>created on:</b> {getDateOrTime(pageDetails.createdAt, "date")}
-          </p>
-          <p>
-            <b>at:</b> {getDateOrTime(pageDetails.createdAt, "time")}
-          </p>
-          <p>{pageDetails.content}</p>
+          <div className="page-header-container">
+            <div>
+              <h1 className="dark-text">{pageDetails.title}</h1>
+              <h3 className="dark-text">{pageDetails.author.name}</h3>
+            </div>
+            <div>
+              <p className="dark-text">
+                <b className="dark-text">created on:</b>{" "}
+                {getDateOrTime(pageDetails.createdAt, "date")}
+              </p>
+              <p className="dark-text">
+                <b className="dark-text">at:</b>{" "}
+                {getDateOrTime(pageDetails.createdAt, "time")}
+              </p>
+            </div>
+          </div>
+          <div className="page-content-container">
+            <p className="dark-text">{pageDetails.content}</p>
+          </div>
+
           {pageDetails.tags.map((tag, index) => (
-            <p key={index}>#{tag.name}</p>
+            <p className="faded-dark-text font-bold tag-text" key={index}>
+              #{tag.name}
+            </p>
           ))}
         </div>
       ) : (
         <h1>LOADING</h1>
       )}
+      <button onClick={backToList}>Back to Wiki List</button>
     </>
   );
 };
