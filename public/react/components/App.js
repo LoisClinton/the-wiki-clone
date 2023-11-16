@@ -51,7 +51,8 @@ export const App = () => {
   //fetches the List of pages on load
   useEffect(() => {
     fetchPages();
-  }, []);
+    console.log(logInDetails);
+  }, [logInDetails]);
 
   return (
     <main>

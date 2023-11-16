@@ -30,6 +30,7 @@ router.get("/:userId", async (req, res, next) => {
   }
 });
 
+// GET /users/:email
 router.get("/:email", async (req, res, next) => {
   try {
     const user = await User.findOne({

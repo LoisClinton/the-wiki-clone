@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { AccountMaker } from "./AccountMaker";
 import apiURL from "../api";
 
-export const LogIn = ({ setLoggedIn, setLogInDetails }) => {
+export const LogIn = ({ setLoggedIn, logInDetails, setLogInDetails }) => {
   const [makeAccount, setMakeAccount] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -13,8 +13,16 @@ export const LogIn = ({ setLoggedIn, setLogInDetails }) => {
 
   const logInAttempt = async (e) => {
     e.preventDefault();
-    const response = await fetch(`${apiURL}/user/${email}`);
+    const response = await fetch(`${apiURL}/users/${email}`);
     const retrievedUser = await response.json();
+    console.log(retrievedUser);
+    if (email == retrievedUser.email && password == retrievedUser.password) {
+      setLogInDetails(retrievedUser);
+      setLoggedIn(true);
+    } else {
+      console.log(email, retrievedUser.email, password, retrievedUser.password);
+      window.alert("username or password incorrect");
+    }
 
     setLoggedIn(true);
   };
