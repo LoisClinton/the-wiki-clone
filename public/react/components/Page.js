@@ -50,7 +50,6 @@ export const Page = (props) => {
     <>
       {pageDetails ? (
         <div className="white-background-box background-box-page">
-          {console.log(pageDetails)}
           <div className="page-header-container">
             <div>
               <h1 className="dark-text">{pageDetails.title}</h1>
