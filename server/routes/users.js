@@ -50,4 +50,20 @@ router.get("/:email", async (req, res, next) => {
   }
 });
 
+// GET /users/create
+router.get("/create", async (req, res, next) => {
+  try {
+    const user = await User.create({ name: "Jane" });
+
+    if (!user) {
+      res.status(404);
+      next();
+    } else {
+      res.send(user);
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

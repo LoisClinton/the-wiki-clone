@@ -70,7 +70,8 @@ export const App = () => {
           </header>
           <h3 className="stylized-words">
             <i>
-              Read, Write, <span className="font-thin">what you </span> Love 📚
+              Hello {logInDetails.name}! Read, Write,{" "}
+              <span className="font-thin">what you </span> Love 📚
             </i>
           </h3>
 
@@ -82,6 +83,7 @@ export const App = () => {
               singlePage={singlePage}
               setSinglePage={setSinglePage}
               fetchPages={fetchPages}
+              logInDetails={logInDetails}
             />
           ) : singlePage ? (
             // single page
@@ -94,6 +96,7 @@ export const App = () => {
               singlePage={singlePage}
               setSinglePage={setSinglePage}
               fetchPages={fetchPages}
+              logInDetails={logInDetails}
             />
           )}
         </>

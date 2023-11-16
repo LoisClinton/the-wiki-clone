@@ -22,15 +22,23 @@ export const LogIn = ({ setLoggedIn, logInDetails, setLogInDetails }) => {
     } else {
       console.log(email, retrievedUser.email, password, retrievedUser.password);
       window.alert("username or password incorrect");
+      setEmail("");
+      setPassword("");
     }
-
-    setLoggedIn(true);
   };
 
   return (
     <>
       {makeAccount ? (
-        <AccountMaker />
+        <AccountMaker
+          logInAttempt={logInAttempt}
+          setEmail={setEmail}
+          setPassword={setPassword}
+          setMakeAccount={setMakeAccount}
+          setLoggedIn={setLoggedIn}
+          logInDetails={logInDetails}
+          setLogInDetails={setLogInDetails}
+        />
       ) : (
         <>
           <div>

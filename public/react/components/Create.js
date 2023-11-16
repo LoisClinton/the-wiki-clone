@@ -12,6 +12,7 @@ export const Create = ({
   singlePage,
   setSinglePage,
   fetchPages,
+  logInDetails,
 }) => {
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
@@ -48,11 +49,12 @@ export const Create = ({
     e.preventDefault();
 
     const request = {
-      name: "Temp Person",
-      email: "tempperson@gmail.com",
+      name: logInDetails.name,
+      email: logInDetails.email,
       title: title,
       content: content,
       status: "open",
+      tags: tags,
     };
     postSubmit(request);
   };
@@ -94,6 +96,8 @@ export const Create = ({
             className="dark-text input-field"
             type="text"
             placeholder="tags"
+            value={tags}
+            onChange={(event) => setTags(event.target.value)}
           />
         </div>
         <div className="button-container">

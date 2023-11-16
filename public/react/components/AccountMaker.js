@@ -1,7 +1,15 @@
 import React, { useState, useEffect } from "react";
 import apiURL from "../api";
 
-export const AccountMaker = ({ setLoggedIn, setLogInDetails }) => {
+export const AccountMaker = ({
+  logInAttempt,
+  setEmail,
+  setPassword,
+  setMakeAccount,
+  setLoggedIn,
+  setLogInDetails,
+  logInDetails,
+}) => {
   return (
     <>
       <div>

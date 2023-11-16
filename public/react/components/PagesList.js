@@ -11,6 +11,7 @@ export const PagesList = ({
   singlePage,
   setSinglePage,
   fetchPages,
+  logInDetails,
 }) => {
   const handleViewClick = (thisPage) => {
     setSinglePage(thisPage);
