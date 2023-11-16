@@ -58,65 +58,49 @@ export const Create = ({
   };
 
   return (
-    <div className="list-content-holder">
-      <div className="white-background-box background-box-form">
-        <form
-          className="form-template"
-          aria-label="form"
-          onSubmit={handleSubmit}
-        >
-          <h3 className="dark-text">Create a post</h3>
-          <div className="input-container">
-            <p className="dark-text">Title:</p>
-            <input
-              id="title"
-              className="dark-text input-field"
-              type="text"
-              placeholder="title"
-              value={title}
-              onChange={(event) => {
-                setTitle(event.target.value);
-                console.log(title);
-              }}
-            />
-          </div>
-          <div className="input-container">
-            <p className="dark-text">Content:</p>
-            <textarea
-              id="content"
-              className="dark-text input-field"
-              type="text"
-              placeholder="Write your post here..."
-              onChange={(event) => setContent(event.target.value)}
-            />
-          </div>
-          <div className="input-container">
-            <p className="dark-text">
-              Tags<i className="faded-dark-text"> (seperate with comma) </i>:
-            </p>
-            <input
-              id="tags"
-              className="dark-text input-field"
-              type="text"
-              placeholder="tags"
-            />
-          </div>
-          <div className="button-container">
-            <button onClick={backToList}>Cancel</button>
-            <button type="submit">Submit</button>
-          </div>
-        </form>
-      </div>
+    <div className="white-background-box background-box-form">
+      <form className="form-template" aria-label="form" onSubmit={handleSubmit}>
+        <h3 className="dark-text">Create a post</h3>
+        <div className="input-container">
+          <p className="dark-text">Title:</p>
+          <input
+            id="title"
+            className="dark-text input-field"
+            type="text"
+            placeholder="title"
+            value={title}
+            onChange={(event) => {
+              setTitle(event.target.value);
+              console.log(title);
+            }}
+          />
+        </div>
+        <div className="input-container">
+          <p className="dark-text">Content:</p>
+          <textarea
+            id="content"
+            className="dark-text input-field"
+            type="text"
+            placeholder="Write your post here..."
+            onChange={(event) => setContent(event.target.value)}
+          />
+        </div>
+        <div className="input-container">
+          <p className="dark-text">
+            Tags<i className="faded-dark-text"> (seperate with comma) </i>:
+          </p>
+          <input
+            id="tags"
+            className="dark-text input-field"
+            type="text"
+            placeholder="tags"
+          />
+        </div>
+        <div className="button-container">
+          <button onClick={backToList}>Cancel</button>
+          <button type="submit">Submit</button>
+        </div>
+      </form>
     </div>
   );
 };
-
-{
-  /* 
-  
-   <h3 className="dark-text">page title</h3>
-<p className="dark-text">content</p>
-<div className="button-container">
-  <button className="stylized-words">Submit</button>
-</div> */
-}
