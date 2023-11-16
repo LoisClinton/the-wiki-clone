@@ -26,7 +26,10 @@ export const PagesList = ({
   };
   const contentShortener = (content) => {
     const contArr = content.split(" ");
-    const contentPreview = `${contArr[0]} ${contArr[1]} ${contArr[2]} ${contArr[3]} ${contArr[4]} ${contArr[5]} ${contArr[6]}...`;
+    if (contArr.length < 6) {
+      return content + "...";
+    }
+    const contentPreview = `${contArr[0]} ${contArr[1]} ${contArr[2]} ${contArr[3]} ${contArr[4]} ${contArr[5]} ...`;
     return contentPreview;
   };
   return (

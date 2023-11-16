@@ -107,6 +107,14 @@ a:hover {
 .font-bold {
   font-weight: 600;
 }
+
+.tag-container {
+  display: flex;
+}
+.tag-text {
+  padding: 5px;
+}
+
 .tag-text:hover {
   color: #1d1d1d;
 }

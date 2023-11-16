@@ -69,12 +69,13 @@ export const Page = (props) => {
           <div className="page-content-container">
             <p className="dark-text">{pageDetails.content}</p>
           </div>
-
-          {pageDetails.tags.map((tag, index) => (
-            <p className="faded-dark-text font-bold tag-text" key={index}>
-              #{tag.name}
-            </p>
-          ))}
+          <div className="tag-container">
+            {pageDetails.tags.map((tag, index) => (
+              <p className="faded-dark-text font-bold tag-text" key={index}>
+                #{tag.name}
+              </p>
+            ))}
+          </div>
         </div>
       ) : (
         <h1>LOADING</h1>
