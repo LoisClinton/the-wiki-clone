@@ -74,12 +74,30 @@ main {
   width: 80%;
   min-height: 500px;
   min-width: 320px;
-
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
+.background-box-login {
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: 400px;
+  flex: 0 1 300px;
+}
+.form-login {
+  align-items: center;
+}
+.form-login > h3 {
+  text-align: center;
+}
+a:hover {
+  color: #1d1d1d;
+}
+.form-login > * {
+  width: 100%;
+  padding: 10px;
+}
 .dark-text {
   color: #1d1d1d;
 }

@@ -16,10 +16,29 @@ router.get("/", async (req, res, next) => {
 router.get("/:userId", async (req, res, next) => {
   try {
     const user = await User.findByPk(req.params.userId, {
-      include: [{ model: Page }]
+      include: [{ model: Page }],
     });
 
-    if(!user) {
+    if (!user) {
+      res.status(404);
+      next();
+    } else {
+      res.send(user);
+    }
+  } catch (error) {
+    next(error);
+  }
+});
+
+router.get("/:email", async (req, res, next) => {
+  try {
+    const user = await User.findOne({
+      where: {
+        email: req.params.email,
+      },
+    });
+
+    if (!user) {
       res.status(404);
       next();
     } else {

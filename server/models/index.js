@@ -71,6 +71,10 @@ const User = sequelize.define("user", {
     isEmail: true,
     allowNull: false,
   },
+  password: {
+    type: Sequelize.STRING,
+    allowNull: false,
+  },
 });
 
 const Tag = sequelize.define("tag", {
