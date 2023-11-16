@@ -31,6 +31,8 @@ export const LogIn = ({ setLoggedIn, logInDetails, setLogInDetails }) => {
     <>
       {makeAccount ? (
         <AccountMaker
+          password={password}
+          email={email}
           logInAttempt={logInAttempt}
           setEmail={setEmail}
           setPassword={setPassword}
