@@ -59,9 +59,18 @@ export const App = () => {
       {loggedIn ? (
         <>
           <header>
+            <div class="dropdown create-button-container">
+              <button class="dropbtn create-button">=</button>
+              <div class="dropdown-content">
+                <p>Sort by user</p>
+                <p>Sort by tag</p>
+                <p> Search</p>
+              </div>
+            </div>
             <div className="title-container">
               <h1 className="logo-text stylized-words">WikiVerse</h1>
             </div>
+
             <div className="create-button-container">
               <button className="create-button" onClick={handlePostClick}>
                 +
