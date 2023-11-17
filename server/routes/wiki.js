@@ -60,44 +60,30 @@ router.get("/search", async (req, res, next) => {
 // PUT /wiki/:slug
 router.put("/:slug", async (req, res, next) => {
   try {
-    const [updatedRowCount, updatedPages] = await Page.update(req.body, {
-      where: {
-        slug: req.params.slug,
-      },
-      returning: true,
-    });
-
-    const tagArray = req.body.tags.split(" ");
-    const tags = await Promise.all(
-      tagArray.map(async (tagName) => {
-        const [tag, wasCreated] = await Tag.findOrCreate({
-          where: {
-            name: tagName,
-          },
-        });
-        return tag;
-      })
-    );
-
-    await updatedPages[0].setTags(tags);
-
-    res.send(updatedPages[0]);
-  } catch (error) {
-    next(error);
-  }
-});
-
-// DELETE /wiki/:slug
-router.delete("/:slug", async (req, res, next) => {
-  try {
-    await Page.destroy({
+    const foundPage = await Page.findOne({
       where: {
         slug: req.params.slug,
       },
     });
 
-    const pages = await Page.findAll();
-    res.send(pages);
+    const updatedPage = await foundPage.update(req.body);
+
+    if (req.body.tags) {
+      const tagArray = req.body.tags.split(" ");
+      const tags = await Promise.all(
+        tagArray.map(async (tagName) => {
+          const [tag, wasCreated] = await Tag.findOrCreate({
+            where: {
+              name: tagName,
+            },
+          });
+          return tag;
+        })
+      );
+
+      await updatedPage.setTags(tags);
+    }
+    res.send(updatedPage);
   } catch (error) {
     next(error);
   }
